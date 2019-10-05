@@ -69,9 +69,6 @@ namespace MixERP.Net.VCards.Processors
                     }
                 }
 
-                var type = token.AdditionalKeyMembers.FirstOrDefault(x => x.Key == "TYPE");
-                address.Type = AddressTypeLookup.Parse(type.Value);
-
                 var pref = token.AdditionalKeyMembers.FirstOrDefault(x => x.Key == "PREF");
                 address.Preference = pref.Value.ConvertTo<int>();
 
@@ -81,6 +78,9 @@ namespace MixERP.Net.VCards.Processors
                 var timezone = token.AdditionalKeyMembers.FirstOrDefault(x => x.Key == "TZ");
                 address.TimeZone = TimeZoneInfoProcessor.FromVCardValue(timezone.Value);
             }
+
+            var type = token.AdditionalKeyMembers.FirstOrDefault(x => x.Key == "TYPE");
+            address.Type = AddressTypeLookup.Parse(type.Value);
 
             if (token.Values.Length > 0)
             {
