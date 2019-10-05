@@ -13,5 +13,10 @@ namespace MixERP.Net.VCards.Models
         public TelephoneType Type { get; set; }
         public string Number { get; set; }
         public int Preference { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Type}: {Number}";
+        }
     }
 }

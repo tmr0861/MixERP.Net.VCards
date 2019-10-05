@@ -304,5 +304,10 @@ namespace MixERP.Net.VCards
         #endregion
 
         public IEnumerable<CustomExtension> CustomExtensions { get; set; }
+
+        public override string ToString()
+        {
+            return FormattedName;
+        }
     }
 }

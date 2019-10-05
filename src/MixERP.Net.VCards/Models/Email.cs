@@ -18,5 +18,9 @@ namespace MixERP.Net.VCards.Models
         public EmailType Type { get; set; }
         public string EmailAddress { get; set; }
         public int Preference { get; set; }
+        public override string ToString()
+        {
+            return EmailAddress;
+        }
     }
 }
