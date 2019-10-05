@@ -126,9 +126,7 @@ namespace MixERP.Net.VCards.Parser
                 return tokens;
             }
 
-            var unfolded = Regex.Replace(contents, @"\r\n\s", (match) => string.Empty);
-
-            using (var reader = new StringReader(unfolded))
+            using (var reader = new StringReader(contents.Unfold()))
             {
                 string line;
                 while (null != (line = reader.ReadLine()))
