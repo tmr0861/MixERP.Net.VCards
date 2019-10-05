@@ -29,7 +29,7 @@ namespace MixERP.Net.VCards.Lookups
                 return AddressType.Postal;
             }
 
-            return Lookup.FirstOrDefault(x => string.Equals(x.Value, addressType, StringComparison.OrdinalIgnoreCase)).Key;
+            return Lookup.FirstOrDefault(x => string.Equals(x.Value, addressType.Split(',')[0], StringComparison.OrdinalIgnoreCase)).Key;
         }
     }
 }

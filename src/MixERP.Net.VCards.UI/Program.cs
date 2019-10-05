@@ -36,6 +36,7 @@ namespace MixERP.Net.VCards.UI
             Console.WriteLine("Reading sample vcards.");
 
             ReadSampleCards();
+            Console.WriteLine("Press any key to continue...");
             Console.ReadLine();
         }
 

@@ -45,7 +45,7 @@ namespace MixERP.Net.VCards.Lookups
                 return TelephoneType.Preferred;
             }
 
-            return Lookup.FirstOrDefault(x => string.Equals(x.Value, type, StringComparison.OrdinalIgnoreCase)).Key;
+            return Lookup.FirstOrDefault(x => string.Equals(x.Value, type.Split(',')[0], StringComparison.OrdinalIgnoreCase)).Key;
         }
     }
 }

@@ -126,11 +126,15 @@ namespace MixERP.Net.VCards.Parser
                 return tokens;
             }
 
-            var reader = new StringReader(contents);
-            string line;
-            while (null != (line = reader.ReadLine()))
+            var unfolded = Regex.Replace(contents, @"\r\n\s", (match) => string.Empty);
+
+            using (var reader = new StringReader(unfolded))
             {
-                tokens.Add(GetToken(line));
+                string line;
+                while (null != (line = reader.ReadLine()))
+                {
+                    tokens.Add(GetToken(line));
+                }
             }
 
             return tokens;
